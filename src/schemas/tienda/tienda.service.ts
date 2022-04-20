@@ -26,6 +26,10 @@ export class TiendaService {
                 
             }
 
+            async buscarCedula(correo:string):Promise<Tienda[]>{
+                return this.tiendaModel.find({correo:correo}).exec();
+            }
+
             async buscarTienda():Promise<Tienda[]>{
                 return this.tiendaModel.find({estado:1}).exec();
             }

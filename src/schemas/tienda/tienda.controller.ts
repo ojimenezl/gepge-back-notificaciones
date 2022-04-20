@@ -22,6 +22,20 @@ export class TiendaController {
     }
 
 
+    @Get('propietario-tienda')
+    async obtenerConsultarTiendasPropietario(
+        @Query() data:string
+    ) {
+        try{            
+            const info = JSON.parse(JSON.stringify(data));
+            return await this._tiendaService.buscarCedula(info.cedula);
+        }catch(error){
+            return new BadRequestException('Error al obtener los Usuarios')
+        }
+    }
+
+
+
 
       /********************************
     *************POSTS***************
