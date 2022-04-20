@@ -37,6 +37,13 @@ export class crearDtoTienda {
 
     @IsOptional()
     @IsString()
+    @Length(3,50)
+    ci_propietario: string;
+
+
+
+    @IsOptional()
+    @IsString()
     @Length(3,500)
     lantitud: string;
 

@@ -25,6 +25,9 @@ export class Tienda{
     abierto: string
 
     @Prop(String)
+    ci_propietario:string
+
+    @Prop(String)
     lantitud: string
 
     @Prop(String)
