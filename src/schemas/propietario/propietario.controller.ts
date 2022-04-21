@@ -22,6 +22,19 @@ export class PropietarioController {
     }
 
 
+    @Get('buscar-propietario')
+    async obtenerPropietarioxCedula(
+        @Query() data:string
+    ) {
+        try{       
+            const info = JSON.parse(JSON.stringify(data));     
+            return await this._propietarioService.buscarPropietarioxCedula(info.cedula);
+        }catch(error){
+            return new BadRequestException('Error al obtener los Usuarios')
+        }
+    }
+
+
     @Get('logeo-propietario')
     async ingresarPropietario(
         @Query() datos:string

@@ -51,6 +51,11 @@ export class PropietarioService {
                 }
             }
 
+
+            async buscarPropietarioxCedula(cedula):Promise<Propietario[]>{
+                return this.PropietarioModel.find({cedula:cedula}).exec();
+            }
+
             async buscarPropietario():Promise<Propietario[]>{
                 return this.PropietarioModel.find({estado:1}).exec();
             }
