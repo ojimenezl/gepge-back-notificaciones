@@ -22,6 +22,18 @@ export class TiendaController {
     }
 
 
+    @Get('buscar-tienda')
+    async obtenerTiendaxIde(
+        @Query() data:string
+    ) {
+        try{            
+            const info = JSON.parse(JSON.stringify(data));
+            return await this._tiendaService.buscarxId(info.id);
+        }catch(error){
+            return new BadRequestException('Error al obtener los Usuarios')
+        }
+    }
+
     @Get('propietario-tienda')
     async obtenerConsultarTiendasPropietario(
         @Query() data:string

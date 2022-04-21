@@ -26,12 +26,16 @@ export class TiendaService {
                 
             }
 
+            async buscarxId(id:string):Promise<Tienda>{
+                return await this.tiendaModel.findById(id).exec();
+            }
+
             async buscarCedula(correo:string):Promise<Tienda[]>{
-                return this.tiendaModel.find({correo:correo}).exec();
+                return await this.tiendaModel.find({correo:correo}).exec();
             }
 
             async buscarTienda():Promise<Tienda[]>{
-                return this.tiendaModel.find({estado:1}).exec();
+                return await this.tiendaModel.find({estado:1}).exec();
             }
     
             async actrualizarTienda(id:string,crearTiendaDto: crearDtoTienda): Promise<Tienda>{
