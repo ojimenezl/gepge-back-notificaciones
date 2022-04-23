@@ -7,7 +7,7 @@ const client = require('twilio')(acountSID,tokeSecurity);
 export const FECHA_ACTUAL = moment().format('YYYY-MM-DD hh:mm:ss');
 
 //iscribirse al sand box
-// https://api.whatsapp.com/send?phone=+14155238886&text=join secret-snow
+// https://api.whatsapp.com/send?phone=+593961824593&text=Hola%20tu-Weka
 export async function EnviarMensaje(telefono:string,mensaje:string){
   let estado = [];
     await  client.messages.create({

@@ -61,6 +61,7 @@ export class PropietarioService {
             }
     
             async actrualizarPropietario(id:string,crearTiendaDto: crearDtoPropietario): Promise<Propietario>{
+                crearPropietarioDto.clave = await bcrypt.hash(crearPropietarioDto.clave,10);
                 return await this.PropietarioModel.findByIdAndUpdate(id,crearTiendaDto);
             }
     
