@@ -60,9 +60,9 @@ export class PropietarioService {
                 return this.PropietarioModel.find({estado:1}).exec();
             }
     
-            async actrualizarPropietario(id:string,crearTiendaDto: crearDtoPropietario): Promise<Propietario>{
+            async actrualizarPropietario(id:string,crearPropietarioDto: crearDtoPropietario): Promise<Propietario>{
                 crearPropietarioDto.clave = await bcrypt.hash(crearPropietarioDto.clave,10);
-                return await this.PropietarioModel.findByIdAndUpdate(id,crearTiendaDto);
+                return await this.PropietarioModel.findByIdAndUpdate(id,crearPropietarioDto);
             }
     
             async eleiminarPropietario(id:string):Promise<Propietario>{
