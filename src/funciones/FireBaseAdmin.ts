@@ -29,7 +29,12 @@ export async function enviarPushToOneUser(notificacion):Promise<string>{
         notification:{
             title:notificacion.titulo,
             body:notificacion.mensaje
-          }
+          },
+        data:{
+        title:notificacion.titulo,
+        body:notificacion.mensaje
+        }
+        
     }
     return await enviarMensaje(mensaje)
 }
