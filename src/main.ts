@@ -9,7 +9,6 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   IniciarFirebase();
   app.enableCors();
-
   await app.listen(PORT);
   Logger.verbose(`APLICACION ESCUCHANDO EL PUERTO ==> ${PUERTO}`);
   
