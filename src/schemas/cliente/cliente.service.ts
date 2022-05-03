@@ -26,6 +26,11 @@ export class ClienteService {
             return this.clienteModel.find().exec();
         }
 
+        async buscarClientexToken(tokenId:string):Promise<Cliente[]>{
+            return this.clienteModel.find({tokenId:tokenId}).exec();
+        }
+
+
         async actualizarCliente(id:string,crearClienteDto: crearDtoCliente): Promise<Cliente>{
             return await this.clienteModel.findByIdAndUpdate(id,crearClienteDto);
         }

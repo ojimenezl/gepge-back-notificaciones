@@ -21,6 +21,20 @@ export class ClienteController {
         }
     }
 
+    @Get('buscar-cliente')
+    async obtenerPropietarioxToken(
+        @Query() id
+    ) {
+        try{            
+            const dat = JSON.parse(JSON.stringify(id));
+            return await this._clienteService.buscarClientexToken(dat.id);
+        }catch(error){
+            return new BadRequestException('Error al obtener los clientes')
+        }
+    }
+
+
+
       /********************************
     *************POSTS***************
     *********************************/
