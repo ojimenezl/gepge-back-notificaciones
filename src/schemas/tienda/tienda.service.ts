@@ -55,7 +55,7 @@ export class TiendaService {
 
             //NOTIFICACIONES 
 
-            async crearNotificacion(token,titulo,mensaje):Promise<string>{
+            async crearNotificacion(token,titulo,mensaje):Promise<any>{
                 const data = {
                     tokenId: token,
                     titulo: titulo,

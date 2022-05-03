@@ -34,15 +34,15 @@ export async function enviarPushToOneUser(notificacion):Promise<string>{
     return await enviarMensaje(mensaje)
 }
 
-export async function enviarMensaje(mensaje):Promise<string>{
+export async function enviarMensaje(mensaje):Promise<any>{
 
-    let respuesta = "Fallo"  
+    let respuesta = {mensaje:"Fallo"};  
     await admin.messaging().send(mensaje)
     .then(response => {
-        respuesta = "Exito al enviar"
+        respuesta.mensaje = "Exito al enviar"
     })
     .catch(error => {
-        respuesta = "Error el enviar" + error
+        respuesta.mensaje = "Error el enviar" + error
     })
     return respuesta
 }
