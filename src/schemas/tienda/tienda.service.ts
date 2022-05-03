@@ -4,11 +4,14 @@ import { Tienda, TiendaDocument } from './tienda.schema';
 import { Model } from "mongoose";
 import { FECHA_ACTUAL } from 'src/funciones/FUNCIONES';
 import { crearDtoTienda } from './dtos/create.dto';
+import { HttpService } from '@nestjs/axios';
+import { admin, enviarPushToOneUser, IniciarFirebase } from 'src/funciones/FireBaseAdmin';
 
 @Injectable()
 export class TiendaService {
     constructor(
-        @InjectModel(Tienda.name) private tiendaModel: Model<TiendaDocument>
+        @InjectModel(Tienda.name) private tiendaModel: Model<TiendaDocument>,
+        private readonly httpService: HttpService
         ){}
 
 
@@ -47,5 +50,17 @@ export class TiendaService {
                 return await this.tiendaModel.findByIdAndDelete(datos.id);
             }
         
-    
+
+
+
+            //NOTIFICACIONES 
+
+            async crearNotificacion(token,titulo,mensaje):Promise<string>{
+                const data = {
+                    tokenId: token,
+                    titulo: titulo,
+                    mensaje: mensaje
+                }
+                return await enviarPushToOneUser(data);
+            }
 }

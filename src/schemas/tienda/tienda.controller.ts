@@ -48,7 +48,6 @@ export class TiendaController {
 
 
 
-
       /********************************
     *************POSTS***************
     *********************************/
@@ -62,6 +61,23 @@ export class TiendaController {
             return await this._tiendaService.crearTienda(JSON.parse(JSON.stringify(data)));
         }catch(error){
             return new BadRequestException('Error al crear Publicacion')
+        }
+    }
+
+    
+    @Post('notificacion')
+    async crearNotificacion(
+        @Body() data:{
+            tokenId:string,
+            titulo:string,
+            mensaje:string
+        }
+    ) {
+        try{     
+        const dat = JSON.parse(JSON.stringify(data));  
+        return await this._tiendaService.crearNotificacion(dat.tokenId, dat.titulo, dat.mensaje);
+        }catch(error){
+            return new BadRequestException('Error al enviar notificacion')
         }
     }
 

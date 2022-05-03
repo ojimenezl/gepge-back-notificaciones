@@ -1,3 +1,4 @@
+import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { TiendaController } from './tienda.controller';
@@ -7,6 +8,8 @@ import { TiendaService } from './tienda.service';
 @Module({
   imports:[
     MongooseModule.forFeature([{name:Tienda.name, schema: TiendaSchema }]),
+    HttpModule,
+    
   ],
   controllers: [TiendaController],
   providers: [TiendaService],

@@ -8,7 +8,7 @@ import { MODULOS } from './constantes/MODULOS';
 @Module({
   imports: [
     MongooseModule.forRoot(MONGODB_CONEXION),
-    ...MODULOS
+    ...MODULOS,
   ],
   controllers: [AppController],
   providers: [AppService],

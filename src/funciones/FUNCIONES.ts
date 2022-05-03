@@ -17,3 +17,4 @@ export async function EnviarMensaje(telefono:string,mensaje:string){
       }).then(envio => { estado.push(envio) });
     return estado;
 }
+
