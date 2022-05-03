@@ -26,8 +26,8 @@ export class ClienteService {
             return this.clienteModel.find().exec();
         }
 
-        async buscarClientexToken(tokenId:string):Promise<Cliente[]>{
-            return this.clienteModel.find({tokenId:tokenId}).exec();
+        async buscarClientexToken(tokenId):Promise<Cliente[]>{
+            return this.clienteModel.find({"tokenId":tokenId.tokenId}).exec();
         }
 
 

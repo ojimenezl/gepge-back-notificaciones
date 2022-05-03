@@ -26,8 +26,8 @@ export class ClienteController {
         @Query() id
     ) {
         try{            
-            const dat = JSON.parse(JSON.stringify(id));
-            return await this._clienteService.buscarClientexToken(dat.id);
+            const dat = JSON.parse(JSON.stringify(id));            
+            return await this._clienteService.buscarClientexToken(dat);
         }catch(error){
             return new BadRequestException('Error al obtener los clientes')
         }
