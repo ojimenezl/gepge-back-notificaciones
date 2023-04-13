@@ -10,7 +10,7 @@ async function bootstrap() {
   IniciarFirebase();
   app.enableCors();
   await app.listen(PORT);
-  Logger.verbose(`APLICACION ESCUCHANDO EL PUERTO ==> ${PUERTO}`);
+  Logger.verbose(`APLICACION ESCUCHANDO EL PUERTO ==> ${PORT}`);
   
 }
 bootstrap();
